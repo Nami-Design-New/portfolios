@@ -3,7 +3,7 @@
     <div class="introData">
       <h1 class="introTitle">{{ introTitle }}</h1>
       <div class="introDes">
-        <p v-for="des in introDes" :key="des">{{ des }}</p>
+        <h5 v-for="des in introDes" :key="des">{{ des }}</h5>
       </div>
       <div class="btnGroup">
         <button class="btn">
@@ -48,9 +48,14 @@ export default {
   margin: auto;
   padding: 50px 0;
   display: flex;
-  gap: 24px;
+  gap: 48px;
   min-height: 70vh;
 
+  @media (max-width: 992px) {
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
   .introTitle {
     font-weight: bold;
     font-size: 60px;
@@ -58,6 +63,12 @@ export default {
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+    @media (max-width: 992px) {
+      font-size: 40px;
+    }
+    @media (max-width: 768px) {
+      font-size: 30px;
+    }
   }
   .introData {
     flex: 1;
@@ -72,7 +83,10 @@ export default {
       display: flex;
       flex-direction: column;
       gap: 8px;
-      p {
+      @media (max-width: 768px) {
+        padding: 0 20px;
+      }
+      h5 {
         color: var(--textColor);
       }
     }
@@ -93,10 +107,18 @@ export default {
         position: relative;
         background: var(--whiteColor);
         aspect-ratio: 1/1;
-        width: min(100% - 20px, 500px);
+        width: min(100% - 20px, 550px);
         border-radius: 100% 10px 100% 100%;
         overflow: hidden;
         border: 4px solid #fff;
+
+        @media (max-width: 768px) {
+          width: min(100% - 20px, 350px);
+          margin: auto;
+          border-radius:  100% 100% 10px 10px;
+
+        }
+
         .bg {
           position: relative;
           width: 100%;
@@ -116,7 +138,7 @@ export default {
             position: absolute;
             background-color: var(--mainColor);
             z-index: 2;
-            opacity: .2;
+            opacity: 0.2;
           }
         }
         button {
@@ -133,14 +155,33 @@ export default {
           justify-content: center;
           z-index: 4;
           cursor: pointer;
-          border:  2px solid #fff;
+          border: 2px solid #fff;
           img {
             width: 30px;
             height: 30px;
             object-fit: contain;
           }
+          &::before {
+            content: "";
+            width: 120%;
+            height: 120%;
+            border-radius: 50%;
+            background-color: #ffffff4f;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            animation: breathe 2s infinite linear;
+            @keyframes breathe {
+              50% {
+                box-shadow: 0 0 0 10px #ffffffba;
+              }
+            }
+          }
         }
       }
+
       &::before {
         content: "";
         top: -670px;
