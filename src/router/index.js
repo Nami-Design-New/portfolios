@@ -5,18 +5,12 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import('../views/HomeView.vue'),
-    exact: true
+    component: () => import('../views/HomeView.vue')
   },
   {
     path: '/pricing',
     name: 'pricing',
     component: () => import('../views/PricingView.vue')
-  },
-  {
-    path: '/Features',
-    name: 'Features',
-    component: () => import('../components/Features.vue')
   },
 ]
 

@@ -5,7 +5,7 @@
 
 <script>
 
-import Header from '@/views/Header.vue'
+import Header from '@/components/Header.vue'
 
 export default {
   components: {
@@ -151,4 +151,29 @@ input {
 [type="url"] {
   direction: rtl;
 }
+
+.btn {
+  padding: 12px 32px;
+  border: none;
+  background-color: var(--mainColor);
+  color: var(--whiteColor);
+  border-radius: 8px;
+  box-shadow: 0px 6px 0px #386913;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  &:hover {
+    transform: translateY(6px);
+    color: var(--whiteColor);
+    box-shadow: none !important;
+  }
+  img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+  }
+}
+
 </style>

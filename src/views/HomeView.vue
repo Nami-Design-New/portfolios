@@ -1,10 +1,9 @@
 <template>
-  <div class="home">
+  <div class="homeVew">
     <MainIntro />
-    <Features id="Features" v-if="$route.path === '/about'" />
+    <div style="height: 5000vh;"></div>
+    <Features />
   </div>
-
- 
 </template>
 
 <script>
@@ -19,3 +18,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.homeVew {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+</style>

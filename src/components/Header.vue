@@ -1,20 +1,29 @@
 <template>
-  <header>
+  <header :class="{ headerAnimate: isScrolled }">
     <nav>
       <!-- logo -->
-      <a class="logo" href="index.html">
+      <router-link to="/" class="logo">
         <img src="@/assets/img/logo.svg" />
-      </a>
+      </router-link>
+
       <!-- nav menu -->
-      <div class="navMenu" :class="{active:sideShow}" @click="sideShow = !sideShow">
-        <router-link to="/" exact > الرئيسية </router-link> 
-        <router-link to="/Features"> المميزات </router-link> 
-        <router-link to="/"> اراء العملاء </router-link> 
-        <router-link to="/"> نماذج الابداع </router-link> 
-        <router-link to="/pricing" > التسعير </router-link>
+      <div
+        class="navMenu"
+        :class="{ active: sideShow }"
+        @click="sideShow = !sideShow"
+      >
+        <router-link to="/"> الرئيسية </router-link>
+        <router-link to="/features"> المميزات </router-link>
+        <router-link to="/reviews"> اراء العملاء </router-link>
+        <router-link to="/portofolios"> نماذج الابداع </router-link>
+        <router-link to="/pricing"> التسعير </router-link>
       </div>
       <!-- toggle btn -->
-      <div class="navBtn" :class="{active:sideShow}" @click="sideShow = !sideShow">
+      <div
+        class="navBtn"
+        :class="{ active: sideShow }"
+        @click="sideShow = !sideShow"
+      >
         <span></span>
         <span></span>
         <span></span>
@@ -29,6 +38,16 @@ export default {
   data() {
     return {
       sideShow: false,
+      isScrolled: false,
+    };
+  },
+  mounted() {
+    window.onscroll = () => {
+      if (document.documentElement.scrollTop > 10) {
+        this.isScrolled = true;
+      } else {
+        this.isScrolled = false;
+      }
     };
   },
 };
@@ -172,29 +191,7 @@ header {
     }
   }
 }
-.btn {
-  padding: 12px 32px;
-  border: none;
-  background-color: var(--mainColor);
-  color: var(--whiteColor);
-  border-radius: 8px;
-  box-shadow: 0px 6px 0px #7e1c21;
-  transition: var(--transition);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  &:hover {
-    transform: translateY(6px);
-    color: var(--whiteColor);
-    box-shadow: none !important;
-  }
-  img {
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
-  }
-}
+
 .headerAnimate {
   box-shadow: var(--BigShadow);
   padding: 0 5px;
