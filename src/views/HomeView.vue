@@ -1,20 +1,20 @@
 <template>
   <div class="homeVew">
     <MainIntro />
-    <div style="height: 5000vh;"></div>
-    <Features />
+    <div style="height: 500vh"></div>
+    <About id="about" />
   </div>
 </template>
 
 <script>
 import MainIntro from "@/components/MainIntro.vue";
-import Features from "@/components/Features.vue";
+import About from "@/components/About.vue";
 
 export default {
   name: "HomeView",
   components: {
     MainIntro,
-    Features,
+    About,
   },
 };
 </script>

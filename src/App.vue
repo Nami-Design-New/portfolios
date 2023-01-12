@@ -1,24 +1,24 @@
 <template>
-  <Header/>
+  <Header />
   <router-view />
 </template>
 
 <script>
-
-import Header from '@/components/Header.vue'
+import Header from "@/components/Header.vue";
 
 export default {
   components: {
-    Header
-  }
-}
+    Header,
+  },
+};
 </script>
 
 <style lang="scss">
 :root {
-  --mainColor: #69B42E;
-  --mainColor10: #fbeeef;
-  --mainColor30: #f2ccce;
+  --mainColor: #69b42e;
+  --mainColor10: #f4fbef;
+  --mainColor30: #def2ce;
+  --secondColor: #05a0db;
   --gold: #ffd700;
   --whiteColor: #ffffff;
   --blackColor: #1f1f1f;
@@ -164,16 +164,20 @@ input {
   align-items: center;
   gap: 8px;
   cursor: pointer;
+  // &:focus{
+  //   transform: translateY(0px);
+  //   color: var(--whiteColor);
+  //   box-shadow: 0px 6px 0px #386913;
+  // }
   &:hover {
     transform: translateY(6px);
     color: var(--whiteColor);
     box-shadow: none !important;
   }
   img {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     object-fit: contain;
   }
 }
-
 </style>

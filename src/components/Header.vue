@@ -5,15 +5,14 @@
       <router-link to="/" class="logo">
         <img src="@/assets/img/logo.svg" />
       </router-link>
-
       <!-- nav menu -->
       <div
         class="navMenu"
         :class="{ active: sideShow }"
         @click="sideShow = !sideShow"
       >
-        <router-link to="/"> الرئيسية </router-link>
-        <router-link to="/features"> المميزات </router-link>
+        <router-link to="/" @click="goToTop" > الرئيسية </router-link>
+        <router-link to="/" v-scroll-to="'#about'"> من نحن </router-link>
         <router-link to="/reviews"> اراء العملاء </router-link>
         <router-link to="/portofolios"> نماذج الابداع </router-link>
         <router-link to="/pricing"> التسعير </router-link>
@@ -31,8 +30,8 @@
     </nav>
   </header>
 </template>
-
-<script>
+  
+  <script>
 export default {
   name: "Header",
   data() {
@@ -40,6 +39,11 @@ export default {
       sideShow: false,
       isScrolled: false,
     };
+  },
+  methods: {
+    goToTop() {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    },
   },
   mounted() {
     window.onscroll = () => {
@@ -52,8 +56,8 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
+  
+  <style lang="scss">
 header {
   position: sticky;
   top: 0;
@@ -61,7 +65,7 @@ header {
   width: 100%;
   z-index: 1024;
   transition: var(--transition);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(15px);
   background-color: #ffffff30;
   @media (max-width: 576px) {
     background-color: #ffffff;
@@ -96,7 +100,7 @@ header {
         display: flex;
         align-items: center;
         color: var(--blackColor);
-        &.router-link-exact-active,
+        // &.router-link-exact-active,
         &:hover {
           color: var(--mainColor);
         }
